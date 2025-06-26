@@ -1,0 +1,1913 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Siddhivinayak Industries | Polymer Solutions</title>
+    <meta
+      name="description"
+      content="Siddhivinayak Industries - Delivering Polymers from Across the World"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+          "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+          "Helvetica Neue", sans-serif;
+        line-height: 1.6;
+        scroll-behavior: smooth;
+      }
+
+      /* Navigation */
+      nav {
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(20px);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        transition: all 0.3s ease;
+      }
+
+      .nav-container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 1rem 1.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .nav-brand {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+
+      .nav-logo {
+        width: 100%;
+        height: 48px;
+        /* border-radius: 50%; */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
+        font-size: 1.25rem;
+      }
+
+      .nav-logo img {
+        width: 100%;
+        height: 48px;
+        border-radius: 0; /* Make logo rectangular */
+        object-fit: cover;
+        background: none;
+      }
+
+      .nav-text h1 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        color: #111827;
+      }
+
+      .nav-text p {
+        font-size: 0.875rem;
+        color: #6b7280;
+      }
+
+      .nav-links {
+        display: none;
+        gap: 2rem;
+      }
+
+      .nav-link {
+        color: #374151;
+        text-decoration: none;
+        position: relative;
+        transition: all 0.3s ease;
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -4px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: linear-gradient(135deg, #3b82f6, #1e40af);
+        transition: width 0.3s ease;
+      }
+
+      .nav-link:hover {
+        color: #2563eb;
+      }
+
+      .nav-link:hover::after {
+        width: 100%;
+      }
+
+      @media (min-width: 768px) {
+        .nav-links {
+          display: flex;
+        }
+      }
+
+      /* Hero Section */
+      .hero {
+        padding: 5rem 0;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        animation: float 6s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px) rotate(0deg);
+        }
+        50% {
+          transform: translateY(-10px) rotate(1deg);
+        }
+      }
+
+      .hero-container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+        text-align: center;
+        position: relative;
+        z-index: 10;
+      }
+
+      .hero h1 {
+        font-size: 3rem;
+        font-weight: bold;
+        margin-bottom: 1.5rem;
+        animation: slideInUp 1s ease-out;
+      }
+
+      .hero p {
+        font-size: 1.25rem;
+        margin-bottom: 2rem;
+        max-width: 768px;
+        margin-left: auto;
+        margin-right: auto;
+        animation: slideInUp 1s ease-out 0.2s both;
+      }
+
+      .hero-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        justify-content: center;
+        animation: slideInUp 1s ease-out 0.4s both;
+      }
+
+      .btn-primary {
+        background: white;
+        color: #2563eb;
+        padding: 0.75rem 2rem;
+        border-radius: 0.5rem;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .btn-primary::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.3),
+          transparent
+        );
+        transition: left 0.6s;
+      }
+
+      .btn-primary:hover::before {
+        left: 100%;
+      }
+
+      .btn-primary:hover {
+        background: #f3f4f6;
+        transform: scale(1.05);
+      }
+
+      .btn-outline {
+        border: 2px solid white;
+        color: white;
+        padding: 0.75rem 2rem;
+        border-radius: 0.5rem;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        background: transparent;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        justify-content: center;
+      }
+
+      .btn-outline:hover {
+        background: white;
+        color: #2563eb;
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+      }
+
+      @keyframes slideInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (min-width: 640px) {
+        .hero-buttons {
+          flex-direction: row;
+        }
+        .hero h1 {
+          font-size: 4rem;
+        }
+      }
+
+      /* Section Styles */
+      .section {
+        padding: 4rem 0;
+      }
+
+      .section-gray {
+        background: #f9fafb;
+      }
+
+      .container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+      }
+
+      .section-header {
+        text-align: center;
+        margin-bottom: 3rem;
+        animation: fadeInUp 1s ease-out;
+      }
+
+      .section-header h2 {
+        font-size: 2.25rem;
+        font-weight: bold;
+        color: #111827;
+        margin-bottom: 1rem;
+      }
+
+      .section-header p {
+        color: #6b7280;
+        font-size: 1.125rem;
+        max-width: 512px;
+        margin: 0 auto;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Grid Layouts */
+      .grid {
+        display: grid;
+        gap: 2rem;
+      }
+
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+
+      .grid-3 {
+        grid-template-columns: 1fr;
+      }
+
+      .grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @media (min-width: 768px) {
+        .grid-2 {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .grid-3 {
+          grid-template-columns: repeat(3, 1fr);
+        }
+        .grid-4 {
+          grid-template-columns: repeat(4, 1fr);
+        }
+        .section-header h2 {
+          font-size: 3rem;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .grid-3 {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+
+      /* Cards */
+      .card {
+        background: white;
+        padding: 2rem;
+        border-radius: 0.75rem;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, #3b82f6, #1e40af, #7c3aed);
+        transform: scaleX(0);
+        transition: transform 0.4s ease;
+      }
+
+      .card:hover::before {
+        transform: scaleX(1);
+      }
+
+      .card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px rgba(59, 130, 246, 0.15);
+        border-color: rgba(59, 130, 246, 0.2);
+      }
+
+      .card-icon {
+        width: 64px;
+        height: 64px;
+        border-radius: 0.75rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1.5rem;
+        font-size: 2rem;
+      }
+
+      .card h3 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        text-align: center;
+      }
+
+      .card p {
+        color: #6b7280;
+        text-align: center;
+      }
+
+      /* Price Cards */
+      .price-card {
+        background: white;
+        border: 2px solid #e5e7eb;
+        border-radius: 0.75rem;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        overflow: hidden;
+      }
+
+      .price-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        border-color: #3b82f6;
+      }
+
+      .price-card-header {
+        padding: 1.5rem;
+        border-bottom: 1px solid #e5e7eb;
+      }
+
+      .price-card-header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 0.75rem;
+      }
+
+      .price-card-title {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: #111827;
+      }
+
+      .favorite-btn {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0.25rem;
+        border-radius: 50%;
+        transition: all 0.2s ease;
+        color: #9ca3af;
+      }
+
+      .favorite-btn:hover {
+        color: #f59e0b;
+        transform: scale(1.1);
+      }
+
+      .favorite-btn.active {
+        color: #f59e0b;
+      }
+
+      .location-badge {
+        display: inline-block;
+        background: #f3f4f6;
+        color: #6b7280;
+        padding: 0.25rem 0.75rem;
+        border-radius: 9999px;
+        font-size: 0.75rem;
+        font-weight: 500;
+        border: 1px solid #d1d5db;
+      }
+
+      .price-card-content {
+        padding: 1.5rem;
+      }
+
+      .price-info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+      }
+
+      .price-range {
+        font-size: 1.125rem;
+        font-weight: 500;
+        color: #374151;
+      }
+
+      .price-change {
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+        font-size: 0.875rem;
+        font-weight: 500;
+      }
+
+      .price-change.positive {
+        background: #ecfdf5;
+        color: #065f46;
+      }
+
+      .price-change.negative {
+        background: #fef2f2;
+        color: #991b1b;
+      }
+
+      .transit-badge {
+        display: inline-block;
+        background: #dbeafe;
+        color: #1e40af;
+        padding: 0.5rem 0.75rem;
+        border-radius: 0.5rem;
+        font-size: 0.75rem;
+        font-weight: 600;
+        border: 1px solid #93c5fd;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .transit-badge::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          45deg,
+          transparent 30%,
+          rgba(255, 255, 255, 0.4) 50%,
+          transparent 70%
+        );
+        transform: translateX(-100%);
+        animation: shimmer 3s infinite;
+      }
+
+      @keyframes shimmer {
+        0% {
+          transform: translateX(-100%);
+        }
+        100% {
+          transform: translateX(100%);
+        }
+      }
+
+      .last-updated {
+        font-size: 0.75rem;
+        color: #9ca3af;
+        margin-top: 1rem;
+      }
+
+      /* Filters */
+      .filters-container {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(20px);
+        border-radius: 0.5rem;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+      }
+
+      .filters-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      @media (min-width: 768px) {
+        .filters-grid {
+          grid-template-columns: repeat(6, 1fr);
+        }
+      }
+
+      .search-input {
+        position: relative;
+      }
+
+      .search-input input {
+        width: 100%;
+        padding: 0.5rem 0.75rem 0.5rem 2.5rem;
+        border: 1px solid #d1d5db;
+        border-radius: 0.375rem;
+        font-size: 0.875rem;
+        transition: all 0.3s ease;
+      }
+
+      .search-input input:focus {
+        outline: none;
+        ring: 2px;
+        ring-color: #3b82f6;
+        border-color: transparent;
+      }
+
+      .search-icon {
+        position: absolute;
+        left: 0.75rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #9ca3af;
+        width: 1rem;
+        height: 1rem;
+      }
+
+      .filter-select {
+        width: 100%;
+        padding: 0.5rem 0.75rem;
+        border: 1px solid #d1d5db;
+        border-radius: 0.375rem;
+        font-size: 0.875rem;
+        background: white;
+        transition: all 0.3s ease;
+      }
+
+      .filter-select:focus {
+        outline: none;
+        ring: 2px;
+        ring-color: #3b82f6;
+        border-color: transparent;
+      }
+
+      .filter-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        border: 1px solid #d1d5db;
+        border-radius: 0.375rem;
+        background: #f9fafb;
+        color: #374151;
+        font-size: 0.875rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .filter-btn:hover {
+        background: #f3f4f6;
+        transform: scale(1.05);
+      }
+
+      .filter-btn.active {
+        background: #fef3c7;
+        color: #92400e;
+        border-color: #fbbf24;
+      }
+
+      .live-update-btn {
+        background: #3b82f6;
+        color: white;
+      }
+
+      .live-update-btn:hover {
+        background: #2563eb;
+      }
+
+      .live-update-btn.updating {
+        background: #dbeafe;
+        color: #1e40af;
+      }
+
+      /* Loading */
+      .loading-container {
+        text-align: center;
+        padding: 3rem 0;
+      }
+
+      .loading-spinner {
+        width: 48px;
+        height: 48px;
+        border: 4px solid #f3f4f6;
+        border-top: 4px solid #3b82f6;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin: 0 auto 1rem;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* Achievement Counters */
+      .achievement-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+        text-align: center;
+      }
+
+      @media (min-width: 768px) {
+        .achievement-grid {
+          grid-template-columns: repeat(4, 1fr);
+        }
+      }
+
+      .achievement-item {
+        animation: fadeInUp 0.8s ease-out;
+      }
+
+      .achievement-number {
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+        background: linear-gradient(45deg, #3b82f6, #1e40af, #7c3aed);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        animation: pulse 2s infinite;
+      }
+
+      .achievement-label {
+        color: #6b7280;
+        font-weight: 500;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.8;
+        }
+      }
+
+      @media (min-width: 768px) {
+        .achievement-number {
+          font-size: 3rem;
+        }
+      }
+
+      /* Testimonials */
+      .testimonial-card {
+        background: white;
+        padding: 1.5rem;
+        border-radius: 0.75rem;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+      }
+
+      .testimonial-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      }
+
+      .testimonial-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+      }
+
+      .testimonial-avatar {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
+        margin-right: 1rem;
+      }
+
+      .testimonial-info h4 {
+        font-weight: 600;
+      }
+
+      .testimonial-info p {
+        font-size: 0.875rem;
+        color: #6b7280;
+      }
+
+      .testimonial-text {
+        color: #6b7280;
+      }
+
+      /* CTA Box */
+      .cta-box {
+        background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+        border-radius: 1rem;
+        padding: 2rem;
+        text-align: center;
+        border: 1px solid #93c5fd;
+        position: relative;
+        overflow: hidden;
+        transition: all 0.3s ease;
+      }
+
+      .cta-box::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          135deg,
+          rgba(59, 130, 246, 0.1),
+          rgba(30, 64, 175, 0.1)
+        );
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .cta-box:hover::before {
+        opacity: 1;
+      }
+
+      .cta-box:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 20px 40px rgba(59, 130, 246, 0.15);
+      }
+
+      .cta-box h3 {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+        color: #111827;
+      }
+
+      .cta-box p {
+        color: #6b7280;
+        margin-bottom: 1.5rem;
+        font-size: 1.125rem;
+      }
+
+      /* Features */
+      .feature-grid {
+        display: grid;
+        gap: 3rem;
+        align-items: center;
+      }
+
+      @media (min-width: 768px) {
+        .feature-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      .feature-list {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+      }
+
+      .feature-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+        transition: all 0.3s ease;
+        padding: 1rem;
+        border-radius: 0.75rem;
+      }
+
+      .feature-item:hover {
+        background: rgba(59, 130, 246, 0.05);
+        transform: translateX(8px);
+      }
+
+      .feature-icon {
+        width: 24px;
+        height: 24px;
+        color: #059669;
+        margin-top: 0.25rem;
+        flex-shrink: 0;
+      }
+
+      .feature-content h3 {
+        font-size: 1.125rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+      }
+
+      .feature-content p {
+        color: #6b7280;
+      }
+
+      /* Footer */
+      footer {
+        background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+        color: white;
+        padding: 3rem 0;
+        position: relative;
+      }
+
+      footer::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.2),
+          transparent
+        );
+      }
+
+      .footer-grid {
+        display: grid;
+        gap: 2rem;
+        margin-bottom: 2rem;
+      }
+
+      @media (min-width: 768px) {
+        .footer-grid {
+          grid-template-columns: repeat(4, 1fr);
+        }
+      }
+
+      .footer-brand {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 1rem;
+      }
+
+      .footer-logo {
+        width: 40px;
+        height: 40px;
+        background: #2563eb;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
+        font-size: 1.125rem;
+      }
+
+      .footer-brand-text h3 {
+        font-size: 1.25rem;
+        font-weight: bold;
+      }
+
+      .footer-brand-text p {
+        font-size: 0.875rem;
+        color: #9ca3af;
+      }
+
+      .footer-description {
+        color: #9ca3af;
+        margin-bottom: 1rem;
+      }
+
+      .social-links {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .social-link {
+        width: 32px;
+        height: 32px;
+        background: #2563eb;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        text-decoration: none;
+        font-size: 0.75rem;
+        font-weight: bold;
+        transition: all 0.3s ease;
+      }
+
+      .social-link:hover {
+        background: #1d4ed8;
+      }
+
+      .footer-section h3 {
+        font-weight: 600;
+        margin-bottom: 1rem;
+        font-size: 1.125rem;
+      }
+
+      .footer-links {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+
+      .footer-links a {
+        color: #9ca3af;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .footer-links a:hover {
+        color: #3b82f6;
+        transform: translateX(4px);
+      }
+
+      .contact-info {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        color: #9ca3af;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .footer-bottom {
+        border-top: 1px solid #374151;
+        padding-top: 2rem;
+        text-align: center;
+        color: #9ca3af;
+      }
+
+      /* Icons (using Unicode symbols) */
+      .icon-package::before {
+        content: "📦";
+      }
+      .icon-award::before {
+        content: "🏆";
+      }
+      .icon-users::before {
+        content: "👥";
+      }
+      .icon-globe::before {
+        content: "🌍";
+      }
+      .icon-shield::before {
+        content: "🛡️";
+      }
+      .icon-clock::before {
+        content: "⏰";
+      }
+      .icon-check::before {
+        content: "✓";
+      }
+      .icon-phone::before {
+        content: "📞";
+      }
+      .icon-mail::before {
+        content: "✉️";
+      }
+      .icon-map::before {
+        content: "📍";
+      }
+      .icon-play::before {
+        content: "▶";
+      }
+      .icon-search::before {
+        content: "🔍";
+      }
+      .icon-refresh::before {
+        content: "🔄";
+      }
+      .icon-star::before {
+        content: "⭐";
+      }
+      .icon-trending-up::before {
+        content: "📈";
+      }
+      .icon-trending-down::before {
+        content: "📉";
+      }
+
+      /* Utilities */
+      .text-center {
+        text-align: center;
+      }
+      .mb-4 {
+        margin-bottom: 1rem;
+      }
+      .mb-6 {
+        margin-bottom: 1.5rem;
+      }
+      .mb-8 {
+        margin-bottom: 2rem;
+      }
+      .hidden {
+        display: none;
+      }
+
+      /* Color variants */
+      .bg-blue-100 {
+        background-color: #dbeafe;
+      }
+      .bg-green-100 {
+        background-color: #d1fae5;
+      }
+      .bg-purple-100 {
+        background-color: #e9d5ff;
+      }
+      .bg-orange-100 {
+        background-color: #fed7aa;
+      }
+      .bg-red-100 {
+        background-color: #fee2e2;
+      }
+      .bg-teal-100 {
+        background-color: #ccfbf1;
+      }
+
+      .text-blue-600 {
+        color: #2563eb;
+      }
+      .text-green-600 {
+        color: #059669;
+      }
+      .text-purple-600 {
+        color: #7c3aed;
+      }
+      .text-orange-600 {
+        color: #ea580c;
+      }
+      .text-red-600 {
+        color: #dc2626;
+      }
+      .text-teal-600 {
+        color: #0d9488;
+      }
+
+      .bg-blue-600 {
+        background-color: #2563eb;
+      }
+      .bg-green-600 {
+        background-color: #059669;
+      }
+      .bg-purple-600 {
+        background-color: #7c3aed;
+      }
+
+      /* Responsive utilities */
+      @media (max-width: 768px) {
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+
+        .section-header h2 {
+          font-size: 2rem;
+        }
+
+        .achievement-number {
+          font-size: 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav>
+      <div class="nav-container">
+        <div class="nav-brand">
+          <div class="nav-logo">
+            <img
+              src="https://www.siddhivinnayakindustries.com/assets/images/resources/logo.png"
+              alt="Siddhivinayak Logo"
+             
+            />
+          </div>
+        </div>
+        <div class="nav-links">
+          <a href="#home" class="nav-link">Home</a>
+          <a href="#about" class="nav-link">About</a>
+          <a href="#products" class="nav-link">Products</a>
+          <a href="#contact" class="nav-link">Contact</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div
+        class="hero-bg"
+        style="
+          background-image: url('https://www.siddhivinnayakindustries.com/images/Banners/FrontPage/slide-v1-1.jpg');
+          background-size: cover;
+          background-position: center;
+          opacity: 0.25;
+        "
+      ></div>
+      <div class="hero-container">
+        <h1>Delivering Polymers from Across the World</h1>
+        <p>
+          Your trusted partner for high-quality polymer solutions with global
+          reach and local expertise
+        </p>
+        <div class="hero-buttons">
+          <button class="btn-primary">Get Started</button>
+          <button class="btn-outline">
+            <span class="icon-play"></span>
+            <span>Watch Video</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Industries Section -->
+    <section id="about" class="section section-gray">
+      <div class="container">
+        <div class="section-header">
+          <h2>Industries We Serve</h2>
+          <p>
+            Providing specialized polymer solutions across diverse industries
+            with unmatched quality and reliability
+          </p>
+        </div>
+
+        <div class="grid grid-3">
+          <div class="card">
+            <div class="card-icon bg-blue-100 text-blue-600 icon-package"></div>
+            <h3>Packaging Industry</h3>
+            <p>
+              High-performance packaging solutions for food, pharmaceutical, and
+              consumer goods industries with superior barrier properties.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-icon bg-green-100 text-green-600 icon-award"></div>
+            <h3>Automotive</h3>
+            <p>
+              Advanced polymer materials for automotive components with superior
+              durability, lightweight properties, and heat resistance.
+            </p>
+          </div>
+
+          <div class="card">
+            <div
+              class="card-icon bg-purple-100 text-purple-600 icon-users"
+            ></div>
+            <h3>Healthcare</h3>
+            <p>
+              Medical-grade polymers for healthcare applications with strict
+              quality standards and biocompatibility certifications.
+            </p>
+          </div>
+
+          <div class="card">
+            <div
+              class="card-icon bg-orange-100 text-orange-600 icon-globe"
+            ></div>
+            <h3>Construction</h3>
+            <p>
+              Durable polymer solutions for construction applications including
+              pipes, fittings, and building materials.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-icon bg-red-100 text-red-600 icon-shield"></div>
+            <h3>Electronics</h3>
+            <p>
+              Specialized polymers for electronic components with excellent
+              insulation and thermal properties.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-icon bg-teal-100 text-teal-600 icon-clock"></div>
+            <h3>Textiles</h3>
+            <p>
+              Innovative polymer fibers and materials for textile industry with
+              enhanced performance characteristics.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Our Achievements</h2>
+          <p>Proud milestones in our journey of excellence</p>
+        </div>
+
+        <div class="achievement-grid">
+          <div class="achievement-item">
+            <div class="achievement-number text-blue-600">8,000+</div>
+            <div class="achievement-label">Happy Customers</div>
+          </div>
+          <div class="achievement-item">
+            <div class="achievement-number text-green-600">5 Lakh MT</div>
+            <div class="achievement-label">Annual Capacity</div>
+          </div>
+          <div class="achievement-item">
+            <div class="achievement-number text-purple-600">1,000+</div>
+            <div class="achievement-label">Product Variants</div>
+          </div>
+          <div class="achievement-item">
+            <div class="achievement-number text-orange-600">₹2,500 Cr</div>
+            <div class="achievement-label">Annual Turnover</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Live Polymer Prices Section -->
+    <section id="products" class="section section-gray">
+      <div class="container">
+        <div class="section-header">
+          <h2>Live Polymer Prices</h2>
+          <p>Real-time pricing for smart procurement decisions</p>
+        </div>
+
+        <!-- Filters -->
+        <div class="filters-container">
+          <div class="filters-grid">
+            <div class="search-input">
+              <span class="search-icon icon-search"></span>
+              <input
+                type="text"
+                id="searchInput"
+                placeholder="Search polymers..."
+              />
+            </div>
+
+            <select id="locationFilter" class="filter-select">
+              <option value="">All Locations</option>
+            </select>
+
+            <select id="polymerTypeFilter" class="filter-select">
+              <option value="">All Types</option>
+            </select>
+
+            <button id="favoritesBtn" class="filter-btn">
+              <span class="icon-star"></span>
+              <span>Favorites</span>
+            </button>
+
+            <button id="liveUpdateBtn" class="filter-btn live-update-btn">
+              <span class="icon-refresh"></span>
+              <span>Live Update</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Price Cards Container -->
+        <div id="pricesContainer">
+          <div class="loading-container">
+            <div class="loading-spinner"></div>
+            <p>Loading polymer prices...</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Why Buyers Choose Us</h2>
+          <p>
+            Experience the difference with our comprehensive polymer solutions
+          </p>
+        </div>
+
+        <div class="feature-grid">
+          <div class="feature-list">
+            <div class="feature-item">
+              <div class="feature-icon icon-check text-green-600"></div>
+              <div class="feature-content">
+                <h3>Quality Assurance</h3>
+                <p>
+                  Rigorous quality control processes ensure consistent,
+                  high-grade polymer materials that meet international
+                  standards.
+                </p>
+              </div>
+            </div>
+
+            <div class="feature-item">
+              <div class="feature-icon icon-check text-green-600"></div>
+              <div class="feature-content">
+                <h3>Global Network</h3>
+                <p>
+                  Extensive supply chain network spanning across continents for
+                  reliable delivery worldwide with strategic partnerships.
+                </p>
+              </div>
+            </div>
+
+            <div class="feature-item">
+              <div class="feature-icon icon-check text-green-600"></div>
+              <div class="feature-content">
+                <h3>Competitive Pricing</h3>
+                <p>
+                  Best-in-market prices with transparent, real-time pricing
+                  updates and flexible payment terms.
+                </p>
+              </div>
+            </div>
+
+            <div class="feature-item">
+              <div class="feature-icon icon-check text-green-600"></div>
+              <div class="feature-content">
+                <h3>Expert Support</h3>
+                <p>
+                  Dedicated technical support team with deep industry expertise
+                  to guide your material selection.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="cta-box">
+            <h3>Forget wasting time, buy polymers in few clicks!</h3>
+            <p>
+              Streamlined procurement process with digital solutions for faster,
+              smarter purchasing decisions
+            </p>
+            <button class="btn-primary">Get Started Today</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section section-gray">
+      <div class="container">
+        <div class="section-header">
+          <h2>What Our Customers Say</h2>
+          <p>Trusted by industry leaders worldwide</p>
+        </div>
+
+        <div class="grid grid-3">
+          <div class="testimonial-card">
+            <div class="testimonial-header">
+              <div class="testimonial-avatar bg-blue-600">A</div>
+              <div class="testimonial-info">
+                <h4>Amit Sharma</h4>
+                <p>Packaging Corp Ltd</p>
+              </div>
+            </div>
+            <p class="testimonial-text">
+              "Exceptional quality and reliable delivery. Siddhivinayak has been
+              our trusted partner for over 5 years."
+            </p>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-header">
+              <div class="testimonial-avatar bg-green-600">P</div>
+              <div class="testimonial-info">
+                <h4>Priya Patel</h4>
+                <p>Auto Components Inc</p>
+              </div>
+            </div>
+            <p class="testimonial-text">
+              "Their technical expertise and product quality have helped us
+              achieve significant cost savings in our operations."
+            </p>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-header">
+              <div class="testimonial-avatar bg-purple-600">R</div>
+              <div class="testimonial-info">
+                <h4>Rajesh Kumar</h4>
+                <p>Medical Devices Ltd</p>
+              </div>
+            </div>
+            <p class="testimonial-text">
+              "Outstanding service and premium quality materials. They
+              understand our industry requirements perfectly."
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <div class="footer-brand">
+              <div class="footer-logo">S</div>
+              <div class="footer-brand-text">
+                <h3>SIDDHIVINAYAK</h3>
+                <p>Industries</p>
+              </div>
+            </div>
+            <p class="footer-description">
+              Leading polymer supplier delivering quality materials across the
+              globe with unmatched expertise and reliability.
+            </p>
+            <div class="social-links">
+              <a href="#" class="social-link">f</a>
+              <a href="#" class="social-link">in</a>
+              <a href="#" class="social-link">t</a>
+            </div>
+          </div>
+
+          <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul class="footer-links">
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Our Products</a></li>
+              <li><a href="#">Industries</a></li>
+              <li><a href="#">Quality Assurance</a></li>
+              <li><a href="#">Sustainability</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-section">
+            <h3>Products</h3>
+            <ul class="footer-links">
+              <li><a href="#">Polyethylene (PE)</a></li>
+              <li><a href="#">Polypropylene (PP)</a></li>
+              <li><a href="#">PVC Resins</a></li>
+              <li><a href="#">Engineering Plastics</a></li>
+              <li><a href="#">Specialty Polymers</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-section">
+            <h3>Contact Info</h3>
+            <div class="contact-info">
+              <div class="contact-item">
+                <span class="icon-phone"></span>
+                <span>+91 63760 92698</span>
+              </div>
+              <div class="contact-item">
+                <span class="icon-mail"></span>
+                <span>info@siddhivinayak.com</span>
+              </div>
+              <div class="contact-item">
+                <span class="icon-map"></span>
+                <span>Vapi, Gujarat, India</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>
+            © 2025 Siddhivinayak Industries. All rights reserved. | Privacy
+            Policy | Terms of Service
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Polymer Prices Data and Functionality
+      let polymerPrices = [];
+      let filteredPrices = [];
+      let favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
+      let showFavorites = false;
+      let isLoading = true;
+
+      // Mock data for demonstration
+      const mockData = [
+        {
+          id: "1",
+          product: "HD GPBM",
+          price_range: "₹89 - ₹92.75",
+          price_change: -2.41,
+          price_change_percent: "-2.41%",
+          transit_time: "1 DAY",
+          location: "Mumbai",
+          last_updated: new Date().toISOString(),
+        },
+        {
+          id: "2",
+          product: "LD Film Grade",
+          price_range: "₹95 - ₹98.50",
+          price_change: 1.85,
+          price_change_percent: "+1.85%",
+          transit_time: "2 DAYS",
+          location: "Delhi",
+          last_updated: new Date().toISOString(),
+        },
+        {
+          id: "3",
+          product: "PP Injection",
+          price_range: "₹102 - ₹105.25",
+          price_change: -0.75,
+          price_change_percent: "-0.75%",
+          transit_time: "1 DAY",
+          location: "Chennai",
+          last_updated: new Date().toISOString(),
+        },
+        {
+          id: "4",
+          product: "PVC Suspension",
+          price_range: "₹78 - ₹82.00",
+          price_change: 3.2,
+          price_change_percent: "+3.20%",
+          transit_time: "3 DAYS",
+          location: "Bangalore",
+          last_updated: new Date().toISOString(),
+        },
+        {
+          id: "5",
+          product: "ABS General",
+          price_range: "₹145 - ₹148.75",
+          price_change: -1.15,
+          price_change_percent: "-1.15%",
+          transit_time: "2 DAYS",
+          location: "Pune",
+          last_updated: new Date().toISOString(),
+        },
+        {
+          id: "6",
+          product: "PS HIPS",
+          price_range: "₹125 - ₹128.50",
+          price_change: 2.65,
+          price_change_percent: "+2.65%",
+          transit_time: "1 DAY",
+          location: "Kolkata",
+          last_updated: new Date().toISOString(),
+        },
+      ];
+
+      const locations = [
+        "Mumbai",
+        "Delhi",
+        "Chennai",
+        "Bangalore",
+        "Pune",
+        "Kolkata",
+      ];
+      const polymerTypes = ["HD", "LD", "PP", "PVC", "ABS", "PS"];
+
+      // Initialize the application
+      function initApp() {
+        populateFilters();
+        setupEventListeners();
+        loadPrices();
+      }
+
+      // Populate filter dropdowns
+      function populateFilters() {
+        const locationFilter = document.getElementById("locationFilter");
+        const polymerTypeFilter = document.getElementById("polymerTypeFilter");
+
+        locations.forEach((location) => {
+          const option = document.createElement("option");
+          option.value = location;
+          option.textContent = location;
+          locationFilter.appendChild(option);
+        });
+
+        polymerTypes.forEach((type) => {
+          const option = document.createElement("option");
+          option.value = type;
+          option.textContent = type;
+          polymerTypeFilter.appendChild(option);
+        });
+      }
+
+      // Setup event listeners
+      function setupEventListeners() {
+        document
+          .getElementById("searchInput")
+          .addEventListener("input", filterPrices);
+        document
+          .getElementById("locationFilter")
+          .addEventListener("change", filterPrices);
+        document
+          .getElementById("polymerTypeFilter")
+          .addEventListener("change", filterPrices);
+        document
+          .getElementById("favoritesBtn")
+          .addEventListener("click", toggleFavorites);
+        document
+          .getElementById("liveUpdateBtn")
+          .addEventListener("click", handleLiveUpdate);
+      }
+
+      // Load prices with simulation
+      function loadPrices() {
+        setTimeout(() => {
+          polymerPrices = mockData;
+          isLoading = false;
+          filterPrices();
+        }, 1500);
+      }
+
+      // Filter prices based on current filters
+      function filterPrices() {
+        const searchQuery = document
+          .getElementById("searchInput")
+          .value.toLowerCase();
+        const selectedLocation =
+          document.getElementById("locationFilter").value;
+        const selectedPolymerType =
+          document.getElementById("polymerTypeFilter").value;
+
+        let filtered = polymerPrices;
+
+        if (searchQuery) {
+          filtered = filtered.filter((price) =>
+            price.product.toLowerCase().includes(searchQuery)
+          );
+        }
+
+        if (selectedLocation) {
+          filtered = filtered.filter((price) =>
+            price.location
+              .toLowerCase()
+              .includes(selectedLocation.toLowerCase())
+          );
+        }
+
+        if (selectedPolymerType) {
+          filtered = filtered.filter((price) =>
+            price.product.startsWith(selectedPolymerType)
+          );
+        }
+
+        if (showFavorites) {
+          filtered = filtered.filter((price) =>
+            favorites.includes(price.product)
+          );
+        }
+
+        filteredPrices = filtered;
+        renderPrices();
+      }
+
+      // Render price cards
+      function renderPrices() {
+        const container = document.getElementById("pricesContainer");
+
+        if (isLoading) {
+          container.innerHTML = `
+                    <div class="loading-container">
+                        <div class="loading-spinner"></div>
+                        <p>Loading polymer prices...</p>
+                    </div>
+                `;
+          return;
+        }
+
+        if (filteredPrices.length === 0) {
+          container.innerHTML = `
+                    <div class="loading-container">
+                        <h3 style="font-size: 1.25rem; font-weight: 600; color: #111827; margin-bottom: 0.5rem;">No results found</h3>
+                        <p style="color: #6b7280;">Try adjusting your filters or search terms</p>
+                    </div>
+                `;
+          return;
+        }
+
+        const pricesGrid = document.createElement("div");
+        pricesGrid.className = "grid grid-3";
+
+        filteredPrices.forEach((price) => {
+          const isPositive = price.price_change >= 0;
+          const isFavorite = favorites.includes(price.product);
+
+          const priceCard = document.createElement("div");
+          priceCard.className = "price-card";
+          priceCard.innerHTML = `
+                    <div class="price-card-header">
+                        <div class="price-card-header-content">
+                            <h3 class="price-card-title">${price.product}</h3>
+                            <button class="favorite-btn ${
+                              isFavorite ? "active" : ""
+                            }" onclick="toggleFavorite('${price.product}')">
+                                <span class="icon-star"></span>
+                            </button>
+                        </div>
+                        <div class="location-badge">${price.location}</div>
+                    </div>
+                    <div class="price-card-content">
+                        <div class="price-info">
+                            <div class="price-range">${price.price_range}</div>
+                            <div class="price-change ${
+                              isPositive ? "positive" : "negative"
+                            }">
+                                <span class="${
+                                  isPositive
+                                    ? "icon-trending-up"
+                                    : "icon-trending-down"
+                                }"></span>
+                                <span>${price.price_change_percent}</span>
+                            </div>
+                        </div>
+                        <div class="transit-badge">TRANSIT: ${
+                          price.transit_time
+                        }</div>
+                        <div class="last-updated">Updated: ${new Date(
+                          price.last_updated
+                        ).toLocaleTimeString()}</div>
+                    </div>
+                `;
+          pricesGrid.appendChild(priceCard);
+        });
+
+        container.innerHTML = "";
+        container.appendChild(pricesGrid);
+      }
+
+      // Toggle favorites
+      function toggleFavorites() {
+        showFavorites = !showFavorites;
+        const btn = document.getElementById("favoritesBtn");
+        if (showFavorites) {
+          btn.classList.add("active");
+        } else {
+          btn.classList.remove("active");
+        }
+        filterPrices();
+      }
+
+      // Toggle individual favorite
+      function toggleFavorite(product) {
+        const index = favorites.indexOf(product);
+        if (index > -1) {
+          favorites.splice(index, 1);
+        } else {
+          favorites.push(product);
+        }
+        localStorage.setItem("favorites", JSON.stringify(favorites));
+        renderPrices();
+      }
+
+      // Handle live update
+      function handleLiveUpdate() {
+        const btn = document.getElementById("liveUpdateBtn");
+        btn.classList.add("updating");
+        btn.innerHTML =
+          '<span class="icon-refresh"></span><span>Updating...</span>';
+
+        setTimeout(() => {
+          // Simulate price updates
+          polymerPrices.forEach((price) => {
+            price.last_updated = new Date().toISOString();
+            // Randomly update price changes
+            const change = (Math.random() - 0.5) * 5;
+            price.price_change = parseFloat(change.toFixed(2));
+            price.price_change_percent = `${
+              change >= 0 ? "+" : ""
+            }${change.toFixed(2)}%`;
+          });
+
+          btn.classList.remove("updating");
+          btn.innerHTML =
+            '<span class="icon-refresh"></span><span>Live Update</span>';
+          filterPrices();
+        }, 2000);
+      }
+
+      // Smooth scrolling for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+
+      // Add scroll effect to navigation
+      window.addEventListener("scroll", function () {
+        const nav = document.querySelector("nav");
+        if (window.scrollY > 100) {
+          nav.style.boxShadow = "0 4px 20px rgba(0, 0, 0, 0.1)";
+        } else {
+          nav.style.boxShadow = "none";
+        }
+      });
+
+      // Animate numbers on scroll
+      function animateNumbers() {
+        const numbers = document.querySelectorAll(".achievement-number");
+        numbers.forEach((number) => {
+          const rect = number.getBoundingClientRect();
+          if (rect.top < window.innerHeight && rect.bottom > 0) {
+            const text = number.textContent;
+            const match = text.match(/(\d+)/);
+            if (match && !number.classList.contains("animated")) {
+              number.classList.add("animated");
+              const targetNumber = parseInt(match[1]);
+              let current = 0;
+              const increment = targetNumber / 50;
+              const timer = setInterval(() => {
+                current += increment;
+                if (current >= targetNumber) {
+                  current = targetNumber;
+                  clearInterval(timer);
+                }
+                number.textContent = text.replace(
+                  /\d+/,
+                  Math.floor(current).toLocaleString()
+                );
+              }, 30);
+            }
+          }
+        });
+      }
+
+      window.addEventListener("scroll", animateNumbers);
+      window.addEventListener("load", animateNumbers);
+
+      // Initialize the app when DOM is loaded
+      document.addEventListener("DOMContentLoaded", initApp);
+    </script>
+  </body>
+</html>
