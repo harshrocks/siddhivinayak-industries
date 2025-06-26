@@ -1,7 +1,6 @@
 # render.yaml
 
 services:
-  - type: static
     name: polymer-prices-site
     env: static
     plan: free           # free static sites on Render
