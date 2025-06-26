@@ -1,0 +1,10 @@
+# render.yaml
+
+services:
+  - type: static
+    name: polymer-prices-site
+    env: static
+    plan: free           # free static sites on Render
+    region: oregon       # pick one of oregon, ohio, frankfurt, singapore
+    branch: main         # or whatever branch you’re pushing your HTML to
+    staticPublishPath: . # serve the root of the repo (your index.html lives here)
